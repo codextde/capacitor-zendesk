@@ -8,10 +8,10 @@ ext {
 buildscript {
     repositories {
         google()
-        jcenter()
+        mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:4.2.1'
+        classpath 'com.android.tools.build:gradle:7.2.1'
         classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.10'
     }
 }
@@ -45,7 +45,6 @@ android {
 
 repositories {
     google()
-    jcenter()
     mavenCentral()
     maven { url 'https://zendesk.jfrog.io/zendesk/repo' }
 }
@@ -63,3 +62,6 @@ dependencies {
     api( group: 'com.zendesk', name: 'support', version: '5.4.0')
 
 }
+
+
+
