@@ -56,5 +56,6 @@ dependencies {
     testImplementation "junit:junit:$junitVersion"
     androidTestImplementation "androidx.test.ext:junit:$androidxJunitVersion"
     androidTestImplementation "androidx.test.espresso:espresso-core:$androidxEspressoCoreVersion"
-    api( group: 'com.zendesk', name: 'support', version: '5.4.0')
+    // api( group: 'com.zendesk', name: 'support', version: '5.4.0')
+    implementation "zendesk.messaging:messaging-android:2.9.0"
 }
