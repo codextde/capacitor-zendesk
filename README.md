@@ -1,11 +1,11 @@
-# capacitor-plugin-zendesk-support
+# @codext/capacitor-zendesk
 
-This page gives you the basic steps for getting up and running with the Support SDK.
+This page gives you the basic steps for getting up and running with the Zendesk Support SDK.
 
 ## Install
 
 ```bash
-npm install capacitor-plugin-zendesk-support
+npm install @codext/capacitor-zendesk
 npx cap sync
 ```
 
