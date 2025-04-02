@@ -2,8 +2,8 @@ import Foundation
 import SupportSDK
 import ZendeskCoreSDK
 
-@objc public class Zendesk: NSObject {
- @objc public func initialize(_ appId: String,_ clientId: String,_ zendeskUrl: String,_ debugLog: Bool) throws {
+@objc public class ZendeskSupport: NSObject {
+    @objc public func initialize(_ appId: String,_ clientId: String,_ zendeskUrl: String,_ debugLog: Bool) throws {
         Zendesk.initialize(appId: appId, clientId: clientId, zendeskUrl: zendeskUrl)
         if (debugLog) {
             CoreLogger.enabled = debugLog

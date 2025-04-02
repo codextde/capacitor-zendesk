@@ -21,7 +21,7 @@ public class ZendeskPlugin: CAPPlugin, CAPBridgedPlugin, UINavigationControllerD
         CAPPluginMethod(name: "showTicketRequest", returnType: CAPPluginReturnPromise),
         CAPPluginMethod(name: "showUserTickets", returnType: CAPPluginReturnPromise)
     ]
-    private let implementation = Zendesk()
+    private let implementation = ZendeskSupport()
 
     @objc func initialize(_ call: CAPPluginCall) {
         do {

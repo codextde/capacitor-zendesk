@@ -58,5 +58,5 @@ dependencies {
     testImplementation "junit:junit:$junitVersion"
     androidTestImplementation "androidx.test.ext:junit:$androidxJunitVersion"
     androidTestImplementation "androidx.test.espresso:espresso-core:$androidxEspressoCoreVersion"
-    implementation "zendesk.messaging:messaging-android:2.30.0"
+    compileOnly "zendesk.messaging:messaging-android:2.30.0"
 }
