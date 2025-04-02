@@ -6,25 +6,246 @@
     "tags": [],
     "methods": [
       {
-        "name": "echo",
-        "signature": "(options: { value: string; }) => Promise<{ value: string; }>",
+        "name": "initialize",
+        "signature": "(options: InitializeOptions) => Promise<void>",
         "parameters": [
           {
             "name": "options",
             "docs": "",
-            "type": "{ value: string; }"
+            "type": "InitializeOptions"
           }
         ],
-        "returns": "Promise<{ value: string; }>",
+        "returns": "Promise<void>",
+        "tags": [],
+        "docs": "",
+        "complexTypes": [
+          "InitializeOptions"
+        ],
+        "slug": "initialize"
+      },
+      {
+        "name": "setAnonymousIdentity",
+        "signature": "(options: AnonymousOptions) => Promise<void>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "AnonymousOptions"
+          }
+        ],
+        "returns": "Promise<void>",
+        "tags": [],
+        "docs": "",
+        "complexTypes": [
+          "AnonymousOptions"
+        ],
+        "slug": "setanonymousidentity"
+      },
+      {
+        "name": "setIdentity",
+        "signature": "(option: IdentityOption) => Promise<void>",
+        "parameters": [
+          {
+            "name": "option",
+            "docs": "",
+            "type": "IdentityOption"
+          }
+        ],
+        "returns": "Promise<void>",
+        "tags": [],
+        "docs": "",
+        "complexTypes": [
+          "IdentityOption"
+        ],
+        "slug": "setidentity"
+      },
+      {
+        "name": "showHelpCenter",
+        "signature": "(options?: HelpCenterOptions | undefined) => Promise<void>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "HelpCenterOptions | undefined"
+          }
+        ],
+        "returns": "Promise<void>",
+        "tags": [],
+        "docs": "",
+        "complexTypes": [
+          "HelpCenterOptions"
+        ],
+        "slug": "showhelpcenter"
+      },
+      {
+        "name": "showTicketRequest",
+        "signature": "(options?: TicketRequestOptions | undefined) => Promise<void>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "TicketRequestOptions | undefined"
+          }
+        ],
+        "returns": "Promise<void>",
+        "tags": [],
+        "docs": "",
+        "complexTypes": [
+          "TicketRequestOptions"
+        ],
+        "slug": "showticketrequest"
+      },
+      {
+        "name": "showUserTickets",
+        "signature": "() => Promise<void>",
+        "parameters": [],
+        "returns": "Promise<void>",
         "tags": [],
         "docs": "",
         "complexTypes": [],
-        "slug": "echo"
+        "slug": "showusertickets"
       }
     ],
     "properties": []
   },
-  "interfaces": [],
+  "interfaces": [
+    {
+      "name": "InitializeOptions",
+      "slug": "initializeoptions",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "zendeskUrl",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "appId",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "clientId",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "debugLog",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "name": "AnonymousOptions",
+      "slug": "anonymousoptions",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "name",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "email",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "IdentityOption",
+      "slug": "identityoption",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "token",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "HelpCenterOptions",
+      "slug": "helpcenteroptions",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "groupBy",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "string | undefined"
+        },
+        {
+          "name": "groupIds",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "number[] | undefined"
+        },
+        {
+          "name": "labels",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "string[] | undefined"
+        }
+      ]
+    },
+    {
+      "name": "TicketRequestOptions",
+      "slug": "ticketrequestoptions",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "subject",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "string | undefined"
+        },
+        {
+          "name": "tags",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "string[] | undefined"
+        },
+        {
+          "name": "fields",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "string[] | undefined"
+        }
+      ]
+    }
+  ],
   "enums": [],
   "typeAliases": [],
   "pluginConfigs": []

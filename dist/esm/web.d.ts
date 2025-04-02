@@ -1,9 +1,10 @@
 import { WebPlugin } from '@capacitor/core';
-import type { ZendeskPlugin } from './definitions';
+import type { ZendeskPlugin, AnonymousOptions, HelpCenterOptions, IdentityOption, InitializeOptions, TicketRequestOptions } from './definitions';
 export declare class ZendeskWeb extends WebPlugin implements ZendeskPlugin {
-    echo(options: {
-        value: string;
-    }): Promise<{
-        value: string;
-    }>;
+    initialize(options: InitializeOptions): Promise<void>;
+    setAnonymousIdentity(options: AnonymousOptions): Promise<void>;
+    setIdentity(option: IdentityOption): Promise<void>;
+    showHelpCenter(options: HelpCenterOptions): Promise<void>;
+    showTicketRequest(options: TicketRequestOptions): Promise<void>;
+    showUserTickets(): Promise<void>;
 }
