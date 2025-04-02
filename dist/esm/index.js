@@ -1,7 +1,7 @@
 import { registerPlugin } from '@capacitor/core';
-const ZendeskSupport = registerPlugin('ZendeskSupport', {
-    web: () => import('./web').then(m => new m.ZendeskSupportWeb()),
+const Zendesk = registerPlugin('Zendesk', {
+    web: () => import('./web').then((m) => new m.ZendeskWeb()),
 });
 export * from './definitions';
-export { ZendeskSupport };
+export { Zendesk };
 //# sourceMappingURL=index.js.map

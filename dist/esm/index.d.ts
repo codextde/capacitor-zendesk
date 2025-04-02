@@ -1,4 +1,4 @@
-import type { ZendeskSupportPlugin } from './definitions';
-declare const ZendeskSupport: ZendeskSupportPlugin;
+import type { ZendeskPlugin } from './definitions';
+declare const Zendesk: ZendeskPlugin;
 export * from './definitions';
-export { ZendeskSupport };
+export { Zendesk };

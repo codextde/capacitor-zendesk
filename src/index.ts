@@ -1,10 +1,10 @@
 import { registerPlugin } from '@capacitor/core';
 
-import type { ZendeskSupportPlugin } from './definitions';
+import type { ZendeskPlugin } from './definitions';
 
-const ZendeskSupport = registerPlugin<ZendeskSupportPlugin>('ZendeskSupport', {
-  web: () => import('./web').then(m => new m.ZendeskSupportWeb()),
+const Zendesk = registerPlugin<ZendeskPlugin>('Zendesk', {
+  web: () => import('./web').then((m) => new m.ZendeskWeb()),
 });
 
 export * from './definitions';
-export { ZendeskSupport };
+export { Zendesk };
