@@ -1,6 +1,6 @@
 import { WebPlugin } from '@capacitor/core';
 
-import type { ZendeskPlugin, AnonymousOptions, HelpCenterOptions, IdentityOption, InitializeOptions, TicketRequestOptions } from './definitions';
+import type { ZendeskPlugin, AnonymousOptions, HelpCenterOptions, IdentityOption, InitializeOptions, TicketRequestOptions, PushRegistrationOptions } from './definitions';
 
 
 export class ZendeskWeb extends WebPlugin implements ZendeskPlugin {
@@ -27,6 +27,14 @@ export class ZendeskWeb extends WebPlugin implements ZendeskPlugin {
 
   async showUserTickets(): Promise<void> {
     console.log('showUserTickets not implemented on web yet!');
+  }
+
+  async registerPushNotifications(options: PushRegistrationOptions): Promise<void> {
+    console.log('registerPushNotifications not implemented on web yet!', options);
+  }
+
+  async unregisterPushNotifications(): Promise<void> {
+    console.log('unregisterPushNotifications not implemented on web yet!');
   }
 }
 

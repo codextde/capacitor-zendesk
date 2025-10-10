@@ -86,6 +86,36 @@ private val implementation = ZendeskSupport()
         call.resolve()
     }
 
+    @PluginMethod
+    fun registerPushNotifications(call: PluginCall) {
+        val deviceToken = call.getString("deviceToken", "")
+        if (deviceToken.isNullOrEmpty()) {
+            call.reject("Device token is required")
+            return
+        }
+        implementation.registerPushNotifications(
+            deviceToken,
+            onSuccess = {
+                call.resolve()
+            },
+            onError = { error ->
+                call.reject(error)
+            }
+        )
+    }
+
+    @PluginMethod
+    fun unregisterPushNotifications(call: PluginCall) {
+        implementation.unregisterPushNotifications(
+            onSuccess = {
+                call.resolve()
+            },
+            onError = { error ->
+                call.reject(error)
+            }
+        )
+    }
+
     private fun <T> jsonArrayToList(jsonArray: JSONArray): List<T> {
         val arrayList: MutableList<T> = ArrayList()
         for (i in 0 until jsonArray.length()) {

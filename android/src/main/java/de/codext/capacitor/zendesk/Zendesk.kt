@@ -15,6 +15,7 @@ import zendesk.support.request.RequestConfiguration
 import zendesk.support.request.RequestActivity
 import zendesk.support.CustomField
 import zendesk.support.requestlist.RequestListActivity
+import zendesk.core.PushRegistrationProvider
 import java.util.ArrayList
 
 public class Zendesk {
@@ -87,5 +88,34 @@ public class Zendesk {
 
     fun showUserTickets(context: Context?) {
         RequestListActivity.builder().show(context!!)
+    }
+
+    fun registerPushNotifications(deviceToken: String, onSuccess: () -> Unit, onError: (String) -> Unit) {
+        Zendesk.INSTANCE.provider()?.pushRegistrationProvider()?.registerWithDeviceIdentifier(
+            deviceToken,
+            object : zendesk.core.ZendeskCallback<String>() {
+                override fun onSuccess(result: String?) {
+                    onSuccess()
+                }
+
+                override fun onError(errorResponse: zendesk.core.ErrorResponse?) {
+                    onError(errorResponse?.reason ?: "Unknown error during push registration")
+                }
+            }
+        )
+    }
+
+    fun unregisterPushNotifications(onSuccess: () -> Unit, onError: (String) -> Unit) {
+        Zendesk.INSTANCE.provider()?.pushRegistrationProvider()?.unregisterDevice(
+            object : zendesk.core.ZendeskCallback<Void>() {
+                override fun onSuccess(result: Void?) {
+                    onSuccess()
+                }
+
+                override fun onError(errorResponse: zendesk.core.ErrorResponse?) {
+                    onError(errorResponse?.reason ?: "Unknown error during push unregistration")
+                }
+            }
+        )
     }
 }

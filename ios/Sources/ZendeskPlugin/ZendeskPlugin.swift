@@ -19,7 +19,9 @@ public class ZendeskPlugin: CAPPlugin, CAPBridgedPlugin, UINavigationControllerD
         CAPPluginMethod(name: "showHelpCenter", returnType: CAPPluginReturnPromise),
         CAPPluginMethod(name: "showHelpCenterArticle", returnType: CAPPluginReturnPromise),
         CAPPluginMethod(name: "showTicketRequest", returnType: CAPPluginReturnPromise),
-        CAPPluginMethod(name: "showUserTickets", returnType: CAPPluginReturnPromise)
+        CAPPluginMethod(name: "showUserTickets", returnType: CAPPluginReturnPromise),
+        CAPPluginMethod(name: "registerPushNotifications", returnType: CAPPluginReturnPromise),
+        CAPPluginMethod(name: "unregisterPushNotifications", returnType: CAPPluginReturnPromise)
     ]
     private let implementation = ZendeskSupport()
 
@@ -113,5 +115,30 @@ public class ZendeskPlugin: CAPPlugin, CAPBridgedPlugin, UINavigationControllerD
     
     @objc func showUserTickets(_ call: CAPPluginCall) {
         implementation.showUserTickets(bridge?.viewController)
+    }
+
+    @objc func registerPushNotifications(_ call: CAPPluginCall) {
+        guard let deviceToken = call.getString("deviceToken") else {
+            call.reject("Device token is required")
+            return
+        }
+
+        implementation.registerPushNotifications(deviceToken) { error in
+            if let error = error {
+                call.reject(error.localizedDescription, nil, error)
+            } else {
+                call.resolve()
+            }
+        }
+    }
+
+    @objc func unregisterPushNotifications(_ call: CAPPluginCall) {
+        implementation.unregisterPushNotifications { error in
+            if let error = error {
+                call.reject(error.localizedDescription, nil, error)
+            } else {
+                call.resolve()
+            }
+        }
     }
 }

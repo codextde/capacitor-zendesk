@@ -89,4 +89,32 @@ import ZendeskCoreSDK
             viewCtrl?.present(navController, animated: true, completion: nil)
         }
     }
+
+    @objc public func registerPushNotifications(_ deviceToken: String, completion: @escaping (Error?) -> Void) {
+        guard let token = deviceToken.data(using: .utf8) else {
+            let error = NSError(domain: "ZendeskPlugin", code: -1, userInfo: [NSLocalizedDescriptionKey: "Invalid device token"])
+            completion(error)
+            return
+        }
+
+        // Register with Zendesk using the device token
+        ZDKPushProvider(zendesk: Zendesk.instance).registerForPush(deviceIdentifier: token) { (pushResponse, error) in
+            if let error = error {
+                completion(error)
+            } else {
+                completion(nil)
+            }
+        }
+    }
+
+    @objc public func unregisterPushNotifications(completion: @escaping (Error?) -> Void) {
+        // Unregister the device from Zendesk push notifications
+        ZDKPushProvider(zendesk: Zendesk.instance).unregisterForPush { (error) in
+            if let error = error {
+                completion(error)
+            } else {
+                completion(nil)
+            }
+        }
+    }
 }

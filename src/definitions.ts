@@ -5,6 +5,8 @@ export interface ZendeskPlugin {
   showHelpCenter(options?: HelpCenterOptions): Promise<void>;
   showTicketRequest(options?: TicketRequestOptions): Promise<void>;
   showUserTickets(): Promise<void>;
+  registerPushNotifications(options: PushRegistrationOptions): Promise<void>;
+  unregisterPushNotifications(): Promise<void>;
 }
 
 export interface InitializeOptions {
@@ -33,4 +35,8 @@ export interface TicketRequestOptions {
   subject?: string,
   tags?: string[],
   fields?: string[]
+}
+
+export interface PushRegistrationOptions {
+  deviceToken: string,
 }
