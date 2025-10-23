@@ -58,9 +58,8 @@ dependencies {
     testImplementation "junit:junit:$junitVersion"
     androidTestImplementation "androidx.test.ext:junit:$androidxJunitVersion"
     androidTestImplementation "androidx.test.espresso:espresso-core:$androidxEspressoCoreVersion"
-    compileOnly "zendesk.messaging:messaging-android:2.30.0"
 
-    // Zendesk Support SDK for push notifications
+    // Zendesk Support SDK
     implementation "com.zendesk:support:5.1.2"
 
     // Firebase Cloud Messaging for push notifications (users will need to add this in their app)

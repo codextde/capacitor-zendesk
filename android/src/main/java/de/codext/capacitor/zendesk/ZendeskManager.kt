@@ -8,19 +8,16 @@ import zendesk.support.Support
 import zendesk.core.AnonymousIdentity
 import zendesk.core.Identity
 import zendesk.core.JwtIdentity
-import zendesk.support.guide.HelpCenterConfiguration
 import zendesk.support.guide.HelpCenterActivity
 import zendesk.support.guide.ViewArticleActivity
-import zendesk.support.request.RequestConfiguration
 import zendesk.support.request.RequestActivity
 import zendesk.support.CustomField
 import zendesk.support.requestlist.RequestListActivity
-import zendesk.core.PushRegistrationProvider
 import java.util.ArrayList
 
-public class Zendesk {
+class ZendeskManager {
 
-   // initialize zendesk support sdk
+    // initialize zendesk support sdk
     fun initialize(context: Context?, url: String?, appId: String?, clientId: String?, debugLog: Boolean) {
         Zendesk.INSTANCE.init(context!!, url!!, appId!!, clientId)
         if (debugLog) Logger.setLoggable(true)

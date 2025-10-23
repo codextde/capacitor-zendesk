@@ -11,9 +11,10 @@ import java.lang.Exception
 import java.util.ArrayList
 
 @CapacitorPlugin(name = "Zendesk")
-public class ZendeskPlugin extends Plugin {
+class ZendeskPlugin : Plugin() {
 
-private val implementation = ZendeskSupport()
+    private val implementation = ZendeskManager()
+
     @PluginMethod
     fun initialize(call: PluginCall) {
         val appId = call.getString("appId", "")
